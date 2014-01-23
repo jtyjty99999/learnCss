@@ -1,0 +1,95 @@
+/**
+* 去掉 IE 10+ 点击链接时的灰色背景
+* @from: https://github.com/thx/cube/blob/gh-pages/src/neat.css
+*/
+a:active {
+    background-color: transparent;
+}
+
+
+/**
+ * 统一 Chrome 和 Safari 的焦点框样式
+ * @from: https://github.com/thx/cube/blob/gh-pages/src/neat.css
+ * Chrome 中 thin 关键字放大页面后焦点框不会放大 http://jsbin.com/ehakom/1
+ * Firefox 中 box-shadow 会导致焦点框位置偏移，需用「outline-offset」修正
+ * 
+ */
+a:focus {
+    outline: 1px dotted;
+}
+
+/**
+ * 1. 去除 IE6-9 和 Firefox 3 中 a 内部 img 元素默认的边框
+ * 2. 修正 IE8 图片消失bug
+ * 3. 防止 img 指定「height」时图片高度不能按照宽度等比缩放，导致图片变形
+      http://jsbin.com/aJoTUca/2
+ * 5. 去除现代浏览器图片底部的空隙
+ * 6. 修复 IE7 图片缩放失真
+ */
+img {
+    border: 0 none; /* 1 */
+    width: auto\9; /* 2 */
+    height: auto; /* 3 */
+    vertical-align: top;/* 5 */
+    -ms-interpolation-mode: bicubic; /* 6 */
+}
+
+/**
+ * 修复 IE9 中的「overflow」的怪异表现
+* @from: https://github.com/thx/cube/blob/gh-pages/src/neat.css
+ */
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/**
+ * 修正 IE7 随着字数增加边距不断增加的问题
+ * @from: https://github.com/thx/cube/blob/gh-pages/src/neat.css
+ */
+input,
+button {
+    *overflow: visible;
+}
+
+/**
+ * @from: https://github.com/thx/cube/blob/gh-pages/src/neat.css
+ * 1. 修正所有浏览器中字体不继承的问题
+ * 2. 修正所有浏览器中字号不继承的问题
+ * 3. 修正 Firefox 3+， Safari5 和 Chrome 中外边距不同的问题
+ * 4. 改善在所有浏览器下的垂直对齐方式
+ */
+button,
+input,
+select,
+textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 2 */
+    margin: 0; /* 3 */
+    vertical-align: baseline; /* 4 */
+    *vertical-align: middle; /* 4 */
+}
+/**
+ * @from: https://github.com/thx/cube/blob/gh-pages/src/neat.css
+ * 1. 避免 Android 4.0.* 中的 WebKit bug ，该bug会破坏原生的
+   「audio」 和「video」的控制器
+ * 2. 更正 iOS 中无法设置可点击的「input」的问题
+ * 3. 统一其他类型的「input」的光标样式
+ */
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+}
+
+/**
+ * @from: https://github.com/thx/cube/blob/gh-pages/src/neat.css
+ * 1.防止 iOS 横屏字号放大，同时保证在PC上 zoom 功能正常
+ */
+html {
+    -ms-text-size-adjust: 100%; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 1 */
+    text-size-adjust: 100%;
+    font-size: 62.5%; /* 10/16=62.5% */
+}

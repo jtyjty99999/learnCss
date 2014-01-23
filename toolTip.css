@@ -1,0 +1,318 @@
+/* ==========================================================================
+   外边距初始化
+   ========================================================================== */
+body, dl, dd, /* dt, 默认没边距 */
+ul, ol, /*li, 默认没边距 */
+h1, h2, h3, h4, h5, h6, pre, /* code, 默认没边距 */
+form, fieldset, legend, input, textarea,
+p, blockquote, figure, hr, menu, dir,
+thead, tbody, tfoot, th, td /* th, td 默认 padding:1px */
+{
+    margin:0;
+    padding:0;
+}
+/* ==========================================================================
+   文字与排版
+   ========================================================================== */
+
+
+/**
+ * 中文优先使用冬青黑体简体(OS X)、微软雅黑(Windows)和文泉驿微米黑(Linux)
+ * 西文使用 tahoma
+ * 1. 防止元素中「font-family」不能继承
+ * 2. 西文字体和 OS X 字体写在前面
+ * 3. Opera 12.1 之前版本不支持中文字体的英文名称
+ * 4. 微软雅黑「\5FAE\8F6F\96C5\9ED1」,中易宋体「\5B8B\4F53」
+ * 5. 在IE 中开启中英文(表意文字与非表意文字)混排自动增加间距功能
+    ideograph-alpha：      在表意文字与非表意文字（如，基于拉丁文的文字、
+                           西里尔文字、希腊文字、阿拉伯文字或希伯来文字）
+                           的行文之间创建额外的间距。
+    ideograph-numeric：    在表意文字与数字字符的行文之间创建额外的间距。
+    ideograph-parenthesis：在普通(非宽)括号与表意文字之间创建额外的间距。
+ */
+body,
+button, /* 1 */
+input, /* 1 */
+select, /* 1 */
+textarea  /* 1 */
+{
+    font-family: 'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
+    -ms-text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis; /* 5 */
+    text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis; /* 5 */
+}
+
+
+/* 强制不换行
+* @from: https://github.com/thx/cube/blob/gh-pages/src/utils.css
+ */
+.nowrap {
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+/* 连续字符换行 
+* @from: https://github.com/thx/cube/blob/gh-pages/src/utils.css
+*/
+.wrap {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/**
+* 文字溢出显示省略号
+* @from: https://github.com/thx/cube/blob/gh-pages/src/utils.css
+* 1. Opera 9-10.6
+* 2. Chrome 21+ bug https://bugs.webkit.org/show_bug.cgi?id=121902
+*/
+
+.ellipsis {
+    display: block;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    -o-text-overflow: ellipsis; /* 1 */
+    text-overflow: ellipsis;
+    text-align: left; /* 2 */
+}
+
+/**
+ * 禁用中文输入法
+ * @from: https://github.com/thx/cube/blob/gh-pages/src/utils.css
+ * 1. 默认关闭输入法，但用户还可以手动开启，Firefox Linux 版不支持。
+ * @note: 仅 IE 5+，Firefox 3+ 支持
+ * @doc:  https://developer.mozilla.org/en-US/docs/Web/CSS/ime-mode
+*/
+.ime-inactive {
+    ime-mode: inactive!important; /* 1 */
+}
+
+
+/*
+ * 1. 防止 OS X 中 Webfont 视觉上看起来变粗
+ * @from: https://github.com/thx/cube/blob/gh-pages/src/utils.css
+ * 2. Fiefox 25 开始支持「-moz-osx-font-smoothing:auto(默认)|grayscale」
+ * Demo: http://jsbin.com/iWItiQe/2
+ */
+.antialiased {
+    -webkit-font-smoothing: antialiased; /* 1 */
+    -moz-osx-font-smoothing: grayscale; /* 2 */
+}
+
+/**
+ * 统一用双线显示人民币符号「&yen;(￥)」
+ * @from: https://github.com/thx/cube/blob/gh-pages/src/utils.css
+ */
+.rmb,
+.yuan {
+    font-family: arial;
+    font-style: normal;
+}
+
+
+
+/* ==========================================================================
+   布局
+   ========================================================================== */
+
+/**
+* 闭合浮动
+* @from: https://github.com/thx/cube/blob/gh-pages/src/utils.css
+* @Author: 一丝
+* @Doc: http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /* IE6-7 触发 hasLayout */
+}
+
+/* ==========================================================================
+   图形与技巧
+   ========================================================================== */
+
+
+/** 图片替换文字
+* @from: https://github.com/thx/cube/blob/gh-pages/src/utils.css
+* 1.text-indent:-999em 存在性能问题：
+*   http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+*/
+.text-hide {
+    text-indent: 100%; /* 1 */
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/** 关闭按钮
+* @from: bootstrap
+* @html: <button type="button" class="close" aria-hidden="true">&times;</button>
+*/
+
+
+.close:hover, .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	opacity: .5;
+	filter: alpha(opacity=50);
+}
+button.close {
+	padding: 0;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	-webkit-appearance: none;
+}
+.close {
+	float: right;
+	font-size: 21px;
+	font-weight: bold;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	opacity: .2;
+	filter: alpha(opacity=20);
+}
+
+/** 小黑三角 
+* @from: bootstrap
+* @html: <span class="caret"></span>
+*/
+
+
+.caret {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 2px;
+	vertical-align: middle;
+	border-top: 4px solid;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+}
+
+/*
+ *@ Name:       CSS 三角形组件
+ *@ Author:     一丝
+ *@ Update:     2013-9-29 16:05:04
+ *@ Usage:
+ */
+.arrow {
+    font-size: 0;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    display: inline-block;
+    *display:inline;
+    *zoom:1;
+    vertical-align: -2px;
+    border: 0 dashed transparent;
+    border-width: 6px;
+}
+
+.arrow-top {
+    border-bottom-style: solid;
+    border-bottom-color: #2AB2DF;
+}
+
+.arrow-bottom {
+    border-top-style: solid;
+    border-top-color: #2AB2DF;
+}
+
+.arrow-left {
+    border-right-style: solid;
+    border-right-color: #2AB2DF;
+}
+
+.arrow-right {
+    border-left-style: solid;
+    border-left-color: #2AB2DF;
+}
+
+/* ◤左上角 */
+.arrow-left-top {
+    border-top-style: solid;
+    border-top-color: #2AB2DF;
+    border-left-width: 0 !important;
+}
+
+/* ◥右上角 */
+.arrow-right-top {
+    border-top-style: solid;
+    border-top-color: #2AB2DF;
+    border-right-width: 0 !important;
+}
+
+/* ◣左下角 */
+.arrow-left-bottom {
+    border-bottom-style: solid;
+    border-bottom-color: #2AB2DF;
+    border-left-width: 0 !important;
+}
+
+/* ◢右下角 */
+.arrow-right-bottom {
+    border-bottom-style: solid;
+    border-bottom-color: #2AB2DF;
+    border-right-width: 0 !important;
+}
+
+
+
+/** 图片响应式 
+* @from: bootstrap
+*/
+
+.img-responsive{
+	max-width : 100%;
+	height : auto; 
+}
+
+
+
+/* ==========================================================================
+   HTML5 初始化
+   ========================================================================== */
+
+/**
+ * 修正未定义为「block」的元素
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * 修正未定义为「inline-block」的元素
+ */
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+
+
+
+
+
