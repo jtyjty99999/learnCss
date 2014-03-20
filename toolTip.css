@@ -312,7 +312,197 @@ video {
 }
 
 
+/* ==========================================================================
+   图表 from purecss.io
+   
+   <table class="pure-table pure-table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Honda</td>
+            <td>Accord</td>
+            <td>2009</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>Toyota</td>
+            <td>Camry</td>
+            <td>2012</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>Hyundai</td>
+            <td>Elantra</td>
+            <td>2010</td>
+        </tr>
+    </tbody>
+</table>
+
+   ========================================================================== */
 
 
+.pure-table {
+    /* Remove spacing between table cells (from Normalize.css) */
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+
+.pure-table caption {
+    color: #000;
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.pure-table td,
+.pure-table th {
+    border-left: 1px solid #cbcbcb;/*  inner column border */
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; /*to make ths where the title is really long work*/
+    padding: 6px 12px; /* cell padding */
+}
+.pure-table td:first-child,
+.pure-table th:first-child {
+    border-left-width: 0;
+}
+
+.pure-table thead {
+    background: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+/*
+striping:
+   even - #fff (white)
+   odd  - #f2f2f2 (light gray)
+*/
+.pure-table td {
+    background-color: transparent;
+}
+.pure-table-odd td {
+    background-color: #f2f2f2;
+}
+
+/* nth-child selector for modern browsers */
+.pure-table-striped tr:nth-child(2n-1) td {
+    background-color: #f2f2f2;
+}
+
+/* BORDERED TABLES */
+.pure-table-bordered td {
+    border-bottom: 1px solid #cbcbcb;
+}
+.pure-table-bordered tbody > tr:last-child td,
+.pure-table-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
+
+
+/* HORIZONTAL BORDERED TABLES */
+
+.pure-table-horizontal td,
+.pure-table-horizontal th {
+    border-width: 0 0 1px 0;
+    border-bottom: 1px solid #cbcbcb;
+}
+.pure-table-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
+
+
+/**
+ * 响应式表格 @from bootstrap
+ * 将任何.table包裹在.table-responsive中即可创建响应式表格，
+ * 其会在小屏幕设备上（小于768px）水平滚动。当屏幕大于768px宽度时，水平滚动条消失。
+ */
+@media (max-width: 767px) {
+    .table-responsive {
+        width: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        border-right: 1px solid #ddd;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-responsive  table {
+        margin: 0;
+    }
+
+    .table-responsive th,
+    .table-responsive td {
+        white-space: nowrap;
+    }
+
+    .table-responsive .table {
+        border: 0 none;
+    }
+}
+
+
+
+
+/* ==========================================================================
+	iconfont @from: https://github.com/thx/cube/blob/gh-pages/src/iconfont.css
+   ========================================================================== */
+
+
+/**
+ *@ name:        iconfont.css V1.1.0
+ *@ author:      一丝
+ *@ update:      2013-12-24 15:28:59
+ * 1. 防止读屏器读出无意义的图标
+ * 2. 防止 OS X 中图标视觉变粗和细节丢失的问题
+ * 3. Fiefox 25 开始支持「-moz-osx-font-smoothing:auto(默认)|grayscale」
+ * Demo: http://jsbin.com/iWItiQe/2
+ */
+.iconfont,
+.type .iconfont, [class^="icon-"]:before,
+[class*=" icon-"]:before,
+.type [class^="icon-"]:before,
+.type [class*=" icon-"]:before {
+    font-family: "iconfont";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    display: inline-block;
+    /* 1 */
+    speak: none;
+    /* 2 */
+    -webkit-font-smoothing: antialiased;
+    /* 3 */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * 引入 Web font
+ * 注意：使用font-face需要 CSS 线上地址和引用的 font 线上地址同域，否则 IE9  会有 CSS3117 问题
+ * CSS3117: @font-face failed cross-origin request. Resource access is restricted.
+ */
+@font-face {
+    font-family: "iconfont";
+    font-weight: normal;
+    font-style: normal;
+    src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot");
+    src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot?#iefix") format("embedded-opentype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.woff") format("woff"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.ttf") format("truetype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.svg#iconfont") format("svg");
+}
 
 
