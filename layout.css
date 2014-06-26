@@ -517,6 +517,52 @@ this the same font stack that Normalize.css sets for the `body`.
 }
 
 
+/* ==========================================================================
+   flexbox 高兼容度移动布局
+   ========================================================================== */
+
+
+.flex-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/**100%伸缩子元素**/
+.flex-col {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+}
+
+/**水平居中**/
+.flex-horizon-center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+/**水平居右**/
+.flex-horizon-right {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+/**垂直居中**/
+.flex-vertical-center {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+
 
 
 
