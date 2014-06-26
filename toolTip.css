@@ -278,7 +278,22 @@ button.close {
 	height : auto; 
 }
 
+/*垂直分割线*/
+.vertical-line {
+    width: 0;
+    height: 100%;
+    font-size: 0;
+    border-left: 1px solid #ccc;
+}
 
+
+
+/*超出隐藏*/
+.elipse {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 /* ==========================================================================
    HTML5 初始化
@@ -504,5 +519,6 @@ striping:
     src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot");
     src: url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot?#iefix") format("embedded-opentype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.woff") format("woff"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.ttf") format("truetype"), url("http://t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.svg#iconfont") format("svg");
 }
+
 
 
